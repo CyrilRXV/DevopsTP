@@ -31,7 +31,9 @@ jobs:
           npm test
 
       - name: Linter
-        run: npm run lint
+        run: |
+          cd api
+          npm run lint
 
   build:
     needs: quality
