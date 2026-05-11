@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --omit=dev
 
-COPY api/src ./src
+COPY src ./src
 
 EXPOSE 3000
 

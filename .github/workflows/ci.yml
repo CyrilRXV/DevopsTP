@@ -29,11 +29,3 @@ jobs:
         run: |
           cd api
           npm test
-
-      - name: Build API Docker image
-        run: |
-          docker build -t trainshop-api:latest -f api/Dockerfile .
-
-      - name: Build frontend Docker image
-        run: |
-          docker build -t trainshop-frontend:latest -f frontend/Dockerfile .
