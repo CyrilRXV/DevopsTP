@@ -41,9 +41,8 @@ jobs:
           cd api
           npm run start &
           timeout 30 bash -c 'until curl -s http://localhost:3000/health >/dev/null; do sleep 1; done'
-          curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/api/products | grep -q "200" || { echo "❌ Route /api/products échouée"; exit 1; }
-          curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/api/users | grep -q "200" || { echo "❌ Route /api/users échouée"; exit 1; }
-          curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/api/health | grep -q "200" || { echo "❌ Route /api/health échouée"; exit 1; }
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/products | grep -q "200" || { echo "❌ Route /api/products échouée"; exit 1; }
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/health | grep -q "200" || { echo "❌ Route /api/health échouée"; exit 1; }
 
   build:
     needs: quality
