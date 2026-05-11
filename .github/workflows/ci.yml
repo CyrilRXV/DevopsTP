@@ -42,12 +42,10 @@ jobs:
       - name: Récupérer le code
         uses: actions/checkout@v4
 
-      - name: Build API
+      - name: Build API Docker image
         run: |
-          cd api
-          npm run build
+          docker build -t trainshop-api:latest -f api/Dockerfile api/
 
-      - name: Build frontend
+      - name: Build frontend Docker image
         run: |
-          cd frontend
-          npm run build
+          docker build -t trainshop-frontend:latest -f frontend/Dockerfile frontend/
