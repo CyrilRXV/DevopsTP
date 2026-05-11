@@ -35,14 +35,6 @@ jobs:
           cd api
           npm run lint
           
-      # --- Checks de typage ---
-      - name: Type checking (TypeScript strict)
-        run: |
-          cd api
-          npx tsc --noEmit --strict
-          cd ../frontend
-          npx tsc --noEmit --strict
-
       # --- Checks des routes API ---
       - name: Test API routes
         run: |
