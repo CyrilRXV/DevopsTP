@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
+  quality:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +29,16 @@ jobs:
         run: |
           cd api
           npm test
+
+      - name: Linter
+        run: npm run lint
+
+  build:
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Build applicatif
+        run: npm run build
