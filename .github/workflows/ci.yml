@@ -42,5 +42,12 @@ jobs:
       - name: Récupérer le code
         uses: actions/checkout@v4
 
-      - name: Build applicatif
-        run: npm run build
+      - name: Build API
+        run: |
+          cd api
+          npm run build
+
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
